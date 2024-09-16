@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "858fa005-b02f-4561-8e1f-3a3f7b240be1",
+		"name": "Altered TCG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37600304"
+	},
+	"item": [
+		{
+			"name": "Cards",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.altered.gg/cards?itemsPerPage=10",
+					"protocol": "https",
+					"host": [
+						"api",
+						"altered",
+						"gg"
+					],
+					"path": [
+						"cards"
+					],
+					"query": [
+						{
+							"key": "itemsPerPage",
+							"value": "10"
+						},
+						{
+							"key": "translations.name",
+							"value": "danseur",
+							"disabled": true
+						},
+						{
+							"key": "rarity",
+							"value": "UNIQUE",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get all cards"
+			},
+			"response": []
+		},
+		{
+			"name": "Collection",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.altered.gg/cards/stats?collection=true&itemsPerPage=650",
+					"protocol": "https",
+					"host": [
+						"api",
+						"altered",
+						"gg"
+					],
+					"path": [
+						"cards",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "collection",
+							"value": "true"
+						},
+						{
+							"key": "itemsPerPage",
+							"value": "650"
+						}
+					]
+				},
+				"description": "Get all cards"
+			},
+			"response": []
+		},
+		{
+			"name": "Card",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.altered.gg/cards/:card_id",
+					"protocol": "https",
+					"host": [
+						"api",
+						"altered",
+						"gg"
+					],
+					"path": [
+						"cards",
+						":card_id"
+					],
+					"variable": [
+						{
+							"key": "card_id",
+							"value": "ALT_CORE_B_YZ_17_R1"
+						}
+					]
+				},
+				"description": "Get all cards"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BEARER",
+			"value": "foobar",
+			"type": "string"
+		}
+	]
+}
