@@ -1,11 +1,51 @@
 {
 	"info": {
-		"_postman_id": "858fa005-b02f-4561-8e1f-3a3f7b240be1",
+		"_postman_id": "84083375-9bbd-4c28-8590-6453ebd367ca",
 		"name": "Altered TCG",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37600304"
+		"_exporter_id": "9450493"
 	},
 	"item": [
+		{
+			"name": "Card",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.altered.gg/cards/:card_id?locale=en-en",
+					"protocol": "https",
+					"host": [
+						"api",
+						"altered",
+						"gg"
+					],
+					"path": [
+						"cards",
+						":card_id"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "en-en"
+						}
+					],
+					"variable": [
+						{
+							"key": "card_id",
+							"value": "ALT_CORE_B_YZ_17_R1"
+						}
+					]
+				},
+				"description": "Get all cards"
+			},
+			"response": []
+		},
 		{
 			"name": "Cards",
 			"request": {
@@ -18,7 +58,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://api.altered.gg/cards?itemsPerPage=10",
+					"raw": "https://api.altered.gg/cards?itemsPerPage=10&locale=en-en",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -42,6 +82,10 @@
 							"key": "rarity",
 							"value": "UNIQUE",
 							"disabled": true
+						},
+						{
+							"key": "locale",
+							"value": "en-en"
 						}
 					]
 				},
@@ -50,7 +94,7 @@
 			"response": []
 		},
 		{
-			"name": "Collection",
+			"name": "Collection Cards",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -71,7 +115,58 @@
 					}
 				],
 				"url": {
-					"raw": "https://api.altered.gg/cards/stats?collection=true&itemsPerPage=650",
+					"raw": "https://api.altered.gg/cards?collection=true&itemsPerPage=650&locale=en-en",
+					"protocol": "https",
+					"host": [
+						"api",
+						"altered",
+						"gg"
+					],
+					"path": [
+						"cards"
+					],
+					"query": [
+						{
+							"key": "collection",
+							"value": "true"
+						},
+						{
+							"key": "itemsPerPage",
+							"value": "650"
+						},
+						{
+							"key": "locale",
+							"value": "en-en"
+						}
+					]
+				},
+				"description": "Get all cards"
+			},
+			"response": []
+		},
+		{
+			"name": "Collection Cards Stats",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.altered.gg/cards/stats?collection=true&itemsPerPage=650&locale=en-en",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -90,6 +185,10 @@
 						{
 							"key": "itemsPerPage",
 							"value": "650"
+						},
+						{
+							"key": "locale",
+							"value": "en-en"
 						}
 					]
 				},
@@ -98,8 +197,18 @@
 			"response": []
 		},
 		{
-			"name": "Card",
+			"name": "Friendships",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -109,7 +218,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://api.altered.gg/cards/:card_id",
+					"raw": "https://api.altered.gg/user_friendships?itemsPerPage=650&locale=en-en",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -117,13 +226,166 @@
 						"gg"
 					],
 					"path": [
-						"cards",
-						":card_id"
+						"user_friendships"
+					],
+					"query": [
+						{
+							"key": "itemsPerPage",
+							"value": "650"
+						},
+						{
+							"key": "locale",
+							"value": "en-en"
+						}
+					]
+				},
+				"description": "Get all cards"
+			},
+			"response": []
+		},
+		{
+			"name": "Friend Cards",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.altered.gg/ownership_lists/tradelist/users/:friend_id?locale=en-en",
+					"protocol": "https",
+					"host": [
+						"api",
+						"altered",
+						"gg"
+					],
+					"path": [
+						"ownership_lists",
+						"tradelist",
+						"users",
+						":friend_id"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "en-en"
+						}
 					],
 					"variable": [
 						{
-							"key": "card_id",
-							"value": "ALT_CORE_B_YZ_17_R1"
+							"key": "friend_id",
+							"value": "01J221CWDQJKDPQSVMJS6447YB"
+						}
+					]
+				},
+				"description": "Get all cards"
+			},
+			"response": []
+		},
+		{
+			"name": "Deck List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.altered.gg/deck_user_lists?locale=en-en",
+					"protocol": "https",
+					"host": [
+						"api",
+						"altered",
+						"gg"
+					],
+					"path": [
+						"deck_user_lists"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "en-en"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get all cards"
+			},
+			"response": []
+		},
+		{
+			"name": "Deck Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.altered.gg/deck_user_lists/:deckid?locale=en-en",
+					"protocol": "https",
+					"host": [
+						"api",
+						"altered",
+						"gg"
+					],
+					"path": [
+						"deck_user_lists",
+						":deckid"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "en-en"
+						}
+					],
+					"variable": [
+						{
+							"key": "deckid",
+							"value": ""
 						}
 					]
 				},
